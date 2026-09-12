@@ -42,16 +42,16 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build \
-            -t naveenezone/authjsb:latest \
-            -t naveenezone/authjsb:${{ github.sha }} .
+            -t naveenezone/persjsb:latest \
+            -t naveenezone/persjsb:${{ github.sha }} .
 
       - name: Push Docker Image
         run: |
-          docker push naveenezone/authjsb:latest
-          docker push naveenezone/authjsb:${{ github.sha }}
+          docker push naveenezone/persjsb:latest
+          docker push naveenezone/persjsb:${{ github.sha }}
 
       - name: Deploy
         run: |
-          cd /app/build/n4ss-authjsb
+          cd /app/build/n4ss-persjsb
           docker compose pull
           docker compose up -d
