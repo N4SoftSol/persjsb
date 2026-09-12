@@ -1,0 +1,25 @@
+name: PersJSB Build
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Verify Runner
+        run: |
+          hostname
+          pwd
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: Verify Java
+        run: |
+          java -version
+          mvn -version
+      - name: Build Application
+        run: |
+          mvn clean package -DskipTests
