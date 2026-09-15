@@ -22,7 +22,7 @@ public class PublicController {
 
     public PublicController(
             Environment environment,
-            @Value("${info.app.name}") String appName,
+            @Value("${info.application.name}") String appName,
             @Value("${info.app.version}") String appVersion
 
     ) {
