@@ -29,7 +29,7 @@ public class PublicController {
                 new HashMap<>();
         info.put("status", "UP");
         info.put("application", "api-server");
-        info.put("Git Update", "2.0");
+        info.put("Git Update", "6.0");
         info.put(
                 "profiles",
                 environment.getActiveProfiles());
