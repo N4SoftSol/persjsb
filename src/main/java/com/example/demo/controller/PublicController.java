@@ -19,19 +19,16 @@ public class PublicController {
     private final Environment environment;
     private final String appName;
     private final String appVersion;
-    private final String applicationVersion;
 
     public PublicController(
             Environment environment,
             @Value("${info.app.name}") String appName,
-            @Value("${info.app.version}") String appVersion,
-            @Value("${info.application.version}") String applicationVersion
+            @Value("${info.app.version}") String appVersion
 
     ) {
         this.environment = environment;
         this.appName = appName;
         this.appVersion = appVersion;
-        this.applicationVersion = applicationVersion;
     }
 
     @GetMapping("/info")
@@ -42,7 +39,6 @@ public class PublicController {
         info.put("status", "UP");
         info.put("application", appName);
         info.put("version", appVersion);
-        info.put("applicationVersion", applicationVersion);
         info.put("profiles", environment.getActiveProfiles());
 
         return ResponseEntity.ok(info);
